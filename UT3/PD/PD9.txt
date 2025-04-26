@@ -1,0 +1,34 @@
+ Lenguaje Natural: Recorremos la lista de caracteres. Si se encuentra un corchete de
+ apertura, se añade un elemento a la pila. Si se encuentra un corchete de cierre, se retira un
+ elemento de la pila si no está vacía (si lo está, se devuelve falso). Si la pila está vacía al
+ final, se devuelve verdadero. Si no, se devuelve falso
+
+Pseudocodigo:
+
+Tipo booleano controlCorchetes (parámetro: una lista de caracteres llamada entrada)
+Inicio:
+ Declarar una pila llamada pilaTemporal                          // O(1)
+
+ Si entrada está vacía ENTONCES                                  // O(1)
+  Retornar error: "la expresión está vacía"                     // O(1)
+
+ Asignar a actual el primer nodo de entrada                     // O(1)
+
+ Si actual.siguiente es nulo ENTONCES                            // O(1)
+  Retornar FALSO // hay solo un carácter                        // O(1)
+
+ Mientras actual.siguiente no sea nulo HACER                      // O(n), donde n es la cantidad de nodos
+  Si el contenido de actual es="{" ENTONCES{                           // O(1)
+   Si insertar un valor en pilaTemporal falla  ENTONCES           // O(1)
+    Retornar FALSO // la pila ya estaba llena                  // O(1)
+  Sino si el contenido de actual es ="}" ENTONCES}                      // O(1)
+   Si sacar un valor de pilaTemporal da como resultado nulo ENTONCES  // O(1)
+    Retornar FALSO // intento de sacar de una pila vacía       // O(1)
+  Avanzar al siguiente nodo: actual ← actual.siguiente          // O(1)
+ Fin mientras
+
+ Si la pilaTemporal está vacía  ENTONCES                          // O(1)
+  Retornar VERDADERO                                            // O(1)
+ Sino
+  Retornar FALSO                                                // O(1)
+Fin

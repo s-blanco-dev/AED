@@ -1,0 +1,92 @@
+\documentclass[12pt,letterpaper, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage[a4paper, total={6.5in, 10in}]{geometry}
+\usepackage[spanish]{babel}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE Algoritmos y Estructuras de Datos\\
+    \large Unidad Temática 1\\
+    \large Práctico Individual 1\\[0.5em]
+    \normalsize \today\\[0.5em]
+    \normalsize Santiago Blanco Canaparro\par
+    \normalsize Profesor: Sebastián Torres\par
+    \normalsize Grupo I2M2\par
+\endgroup
+\rule{\textwidth}{0.4pt}
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Respuesta:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+    \question[] Ejercicio 1\droppoints
+    
+    \begin{solution}
+      \\
+      No yo pac.\textbackslash n\\
+      Vos zacata pac.\textbackslash n\\
+      Yo pac.\textbackslash n
+    \end{solution}
+    
+    \question[] Ejercio 2\\
+    (a.) ¿Cuál es la primera sentencia que se ejecuta?
+    
+       
+    \begin{solution}
+        sipo ("traqueteo", 13);
+    \end{solution}
+
+    (b.) ¿Cuál es la primera sentencia que se ejecuta?
+
+    \begin{solution}
+      \begin{verbatim}
+        public class Zumbido {
+public static void desconcertar (String dirigible) {
+6. System.out.println (dirigible);
+7. sipo ("ping", -5);
+}
+public static void sipo (String membrillo, int flag) {
+2, 8. if (flag < 0) {
+9. System.out.println (membrillo + " sup");
+3. } else {
+4. System.out.println ("ik");
+5. desconcertar (membrillo);
+10. System.out.println ("muaa-ja-ja-ja");
+}
+}
+public static void main (String[] args) {
+1. sipo ("traqueteo", 13);
+}
+}
+      \end{verbatim}
+    \end{solution}    
+
+    \pagebreak %Not necessary
+    
+    \question[] Ejercicio 3\droppoints
+    
+    \begin{solution}
+            \begin{verbatim}
+
+public class Multisuma {
+    public static double multisuma(double a, double b, double c) {
+        return a*b + c;
+    }
+
+    public static void main(String[] args) {
+        double resultado = multisuma(1.0,2.0,3.0);
+        System.out.println(resultado);
+    }
+}
+            \end{verbatim}
+    \end{solution}
+    
+\end{questions}
+\end{document}

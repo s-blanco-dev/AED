@@ -1,0 +1,110 @@
+\documentclass[12pt,letterpaper, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage[a4paper, total={6.5in, 10in}]{geometry}
+\usepackage[spanish]{babel}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE Algoritmos y Estructuras de Datos\\
+    \large Unidad Temática 1\\
+    \large Práctico Individual 4\\[0.5em]
+    \normalsize \today\\[0.5em]
+    \normalsize Santiago Blanco Canaparro\par
+    \normalsize Profesor: Sebastián Torres\par
+    \normalsize Grupo I2M2\par
+\endgroup
+\rule{\textwidth}{0.4pt}
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Respuesta:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+    \question[] Ejercicio 1\droppoints
+    
+(a.) ¿Cuáles son las variables de clase? \\
+    (b.) ¿Cuáles son las variables de instancia?
+    \begin{solution}
+      \\
+      \textbf{public static int x = 7;} es la variable de clase porque la palabra \textbf{static} establece que sea compartida por todas las instancias.\\
+      \textbf{public int y = 3;} es la variable de instancia.
+    \end{solution}
+
+    La salida producida por el código:
+    \begin{solution}
+    \begin{verbatim}
+    a.y = 5
+    b.y = 6
+    a.x = 2
+    b.x = 2
+    IdentifyMyParts.x = 2
+    \end{verbatim}
+    \end{solution}
+    
+    \question[] Ejercio 2\\
+    (a.) Indica lo que está mal en el siguiente programa:
+    \begin{verbatim}
+public class SomethingIsWrong {
+    public static void main(String[] args) {
+      Rectangle myRect;
+      myRect.width = 40;
+      myRect.height = 50;
+      System.out.println("myRect's area is " + myRect.area());
+    }
+}
+    \end{verbatim}
+    
+       
+    \begin{solution}
+      El problema con el programa es que el objeto \textbf{myRect} nunca se inicializa por lo que \textbf{myRect} apunta a null. En ejecución genera una excepción del tipo \textbf{NullPointerException}.
+      La solución:
+      \begin{verbatim}
+      Rectangle myRect = new Rectangle();
+      \end{verbatim}
+
+    \end{solution}
+
+    \question[] Ejercicio 3\droppoints
+  1)   ¿Cuántas referencias a estos objetos
+existen luego de que el código se ha ejecutado? ¿Es alguno de los objetos candidato a
+ser eliminado por el garbage collector?
+
+  \begin{verbatim}
+String[] students = new String[10];
+String studentName = "Peter Parker";
+students[0] = studentName;
+studentName = null;
+...
+  \end{verbatim}    
+    \begin{solution}
+      \textbf{studentName} hace referencia en principio al String 'Peter Parker'. Posteriormente \textbf{students[0]} referencia al mismo String. Al igualar \textbf{studentName} a \textbf{null}, el String 'Peter Parker' deja de ser referenciado por este. El array siempre está referenciado por la variable \textbf{students}. \\ 
+      Dicho esto, ambos están siendo referenciados una vez, por lo que el garbage collector los deja tranquilos, al menos hasta que dejen de ser referenciados.
+    \end{solution}
+
+  2) ¿Cómo hace un programa para destruir  un objeto que ha creado?
+
+  \begin{solution}
+    En Java, un objeto se destruye cuando deja de ser referenciado. Por esta razón, cambiar todas las referencias al objeto en cuestión lo deja a la merced del garbage collector, que fríamente cumplirá con su tarea, arrasando con todos los objetos que nadie recuerda.
+  \end{solution}
+
+3) Dada la clase “ContenedorDeNumeros”, escribe un programa que
+cree una instancia de la clase, inicialice sus dos variables miembro yluego muestre el valor de cada una de ellas.
+
+\begin{solution}
+  \begin{verbatim}
+  NumberHolder nh = new NumberHolder();
+  nh.aFloat = 2.0F;
+  nh.anInt = 3;
+  System.out.println ("nh.aFloat: " + nh.aFloat);
+  System.out.println ("nh.anInt: " + nh.anInt);
+  \end{verbatim}
+\end{solution}
+    
+\end{questions}
+\end{document}

@@ -1,0 +1,66 @@
+\documentclass[12pt,letterpaper, onecolumn]{exam}
+\usepackage{amsmath}
+\usepackage[T1]{fontenc}
+\usepackage{amssymb}
+\usepackage[a4paper, total={6.5in, 10in}]{geometry}
+\usepackage[spanish]{babel}
+% \chead{\hline} % Un-comment to draw line below header
+\thispagestyle{empty}   %For removing header/footer from page 1
+
+\begin{document}
+
+\begingroup  
+    \centering
+    \LARGE Algoritmos y Estructuras de Datos\\
+    \large Unidad Temática 1\\
+    \large Práctico Individual 7\\[0.5em]
+    \normalsize \today\\[0.5em]
+    \normalsize Santiago Blanco Canaparro\par
+    \normalsize Profesor: Sebastián Torres\par
+    \normalsize Grupo I2M2\par
+\endgroup
+\rule{\textwidth}{0.4pt}
+\pointsdroppedatright   %Self-explanatory
+\printanswers
+\renewcommand{\solutiontitle}{\noindent\textbf{Respuesta:}\enspace}   %Replace "Ans:" with starting keyword in solution box
+
+\begin{questions}
+
+    \question[] Ejercicio \#1\droppoints
+    
+    - ¿Por qué esto es así? ¿Qué diferencia representa con otros lenguajes como C\#?
+    \begin{solution}
+      En Java, no es posible comparar dos objetos de tipo String con el operador '==' o '!=', porque no está comparando el contenido, sino que compara referencias o posiciones en memoria, es decir que el bucle no termina a menos que se compare el mismo objeto String. Lo correcto para comparar los contenidos sería utilizar el método 'equals()'. \\
+      En C\#, está permitido comparar Strings con '=='. 
+    \end{solution}
+    
+    \question[] Ejercio \#2\\
+- ¿Qué sentencia se ejecuta como resultado del If en cada caso y por qué?
+    
+       
+    \begin{solution}
+      En el primer caso la comparación resulta ''True'' y en la segunda resulta ''False''. Para entender esto es preciso explicar lo que es el String pool en Java. \\
+  En Java, cada vez que se inicializa un String de la forma ''String s = 'algo''', es almacenado en el String pool, que es un espacio en memoria donde se guardan los String 'literales'. Cuando se vuelve a declarar otro String de la misma manera, si tiene el mismo contenido, Java vuelve a utilizar la instancia del String anterior que se guardaba en el String pool, por lo que ambos apuntan a una misma instancia, es decir que referencian lo mismo. Por esta razón, al compararse ambos String con el operador '==', s1 y s2 referencian el mismo objeto y devuelve True. \\
+  En cambio, cuando se inicializa un nuevo String con la palabra 'new', se está creando un nuevo objeto String fuera del String pool. Es así quesi s1 y s2 tienen el mismo contenido pero referencian dos objetos distintos. \\
+  \textbf{Referencias:}
+  \begin{verbatim}
+https://docs.oracle.com/javase/specs/jls/se17/
+html/jls-3.html#jls-3.10.5
+
+https://muratakkan.medium.com/
+understanding-and-using-the-java-string-pool-in-java-d60d3176716
+  \end{verbatim}
+    \end{solution}
+
+Propone una versión correcta del código del Ejercicio \#1.
+
+    \begin{solution}
+      \begin{verbatim}
+       String s = "1";
+        while (!s.equals("1000")) {
+            s += "0";
+        }      \end{verbatim}
+    \end{solution}    
+
+\end{questions}
+\end{document}
